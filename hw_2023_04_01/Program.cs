@@ -16,7 +16,7 @@ namespace hw_2023_04_01
 
             for (int i = 0; i < array.Size; i++)
             {
-                array[i] = random.Next(-20, 20);
+                array[i] = random.Next(0, 10);
             }
 
             foreach (var item in array)
@@ -27,7 +27,7 @@ namespace hw_2023_04_01
             Console.WriteLine();
 
             Console.WriteLine($"Количество чисел < 4: {array.Less(4)}");
-            Console.WriteLine($"Количество чисел > 10: {array.Greater(10)}");
+            Console.WriteLine($"Количество чисел > 5: {array.Greater(5)}");
 
             Console.WriteLine();
 
@@ -38,6 +38,13 @@ namespace hw_2023_04_01
             Console.WriteLine("Не четные элементы");
             array.ShowOdd();
             Console.WriteLine();
+
+            Console.WriteLine();
+
+            Console.WriteLine($"Количество уникальных элементов: {array.CountDistinct()}");
+            Console.WriteLine($"Количество элементов == 5: {array.EqualToValue(5)}");
+
+
         }
     }
 }
