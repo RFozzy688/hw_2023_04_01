@@ -17,7 +17,12 @@ namespace hw_2023_04_01
         void ShowEven();
         void ShowOdd();
     }
-    internal class Array1D : IEnumerable, ICalc, IOutput
+    interface ICalc2
+    {
+        int CountDistinct();
+        int EqualToValue(int valueToCompare);
+    }
+    internal class Array1D : IEnumerable, ICalc, IOutput, ICalc2
     {
         int[] _array;
         int _size;
@@ -93,7 +98,7 @@ namespace hw_2023_04_01
         {
             foreach (var item in _array)
             {
-                if (item % 2 == 0)
+                if (item % 2 == 0 && item != 0)
                 {
                     Console.Write($" {item}");
                 }
@@ -108,6 +113,45 @@ namespace hw_2023_04_01
                     Console.Write($" {item}");
                 }
             }
+        }
+        public int CountDistinct()
+        {
+            int count = 0;
+
+            for (int i = 0; i < _size; i++)
+            {
+                bool bFlag = false;
+
+                for (int j = 0; j < _size; j++) 
+                {
+                    if (_array[i] == _array[j] && i != j)
+                    {
+                        bFlag = true;
+                        break;
+                    }
+                }
+
+                if (!bFlag)
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+        public int EqualToValue(int valueToCompare)
+        {
+            int count = 0;
+
+            foreach (var item in _array)
+            {
+                if (item ==  valueToCompare)
+                {
+                    count++;
+                }
+            }
+
+            return count;
         }
     }
 }
