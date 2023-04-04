@@ -16,7 +16,7 @@ namespace hw_2023_04_01
 
             for (int i = 0; i < array.Size; i++)
             {
-                array[i] = random.Next(-10, 10);
+                array[i] = random.Next(-20, 20);
             }
 
             foreach (var item in array)
@@ -25,6 +25,9 @@ namespace hw_2023_04_01
             }
 
             Console.WriteLine();
+
+            Console.WriteLine($"Количество чисел < 4: {array.Less(4)}");
+            Console.WriteLine($"Количество чисел > 10: {array.Greater(10)}");
         }
     }
 }
