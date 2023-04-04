@@ -12,7 +12,12 @@ namespace hw_2023_04_01
         int Less(int valueToCompare);
         int Greater(int valueToCompare);
     }
-    internal class Array1D : IEnumerable, ICalc
+    interface IOutput
+    {
+        void ShowEven();
+        void ShowOdd();
+    }
+    internal class Array1D : IEnumerable, ICalc, IOutput
     {
         int[] _array;
         int _size;
@@ -83,6 +88,26 @@ namespace hw_2023_04_01
             }
 
             return count;
+        }
+        public void ShowEven()
+        {
+            foreach (var item in _array)
+            {
+                if (item % 2 == 0)
+                {
+                    Console.Write($" {item}");
+                }
+            }
+        }
+        public void ShowOdd()
+        {
+            foreach (var item in _array)
+            {
+                if (item % 2 != 0)
+                {
+                    Console.Write($" {item}");
+                }
+            }
         }
     }
 }

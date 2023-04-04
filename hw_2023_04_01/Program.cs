@@ -28,6 +28,16 @@ namespace hw_2023_04_01
 
             Console.WriteLine($"Количество чисел < 4: {array.Less(4)}");
             Console.WriteLine($"Количество чисел > 10: {array.Greater(10)}");
+
+            Console.WriteLine();
+
+            Console.WriteLine("Четные элементы");
+            array.ShowEven();
+            Console.WriteLine();
+
+            Console.WriteLine("Не четные элементы");
+            array.ShowOdd();
+            Console.WriteLine();
         }
     }
 }
