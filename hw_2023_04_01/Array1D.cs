@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace hw_2023_04_01
 {
-    internal class Array1D : IEnumerable
+    interface ICalc
+    {
+        int Less(int valueToCompare);
+        int Greater(int valueToCompare);
+    }
+    internal class Array1D : IEnumerable, ICalc
     {
         int[] _array;
         int _size;
@@ -50,6 +55,34 @@ namespace hw_2023_04_01
         IEnumerator IEnumerable.GetEnumerator() 
         {
             return _array.GetEnumerator();
+        }
+        public int Less(int valueToCompare)
+        {
+            int count = 0;
+
+            foreach (var item in _array)
+            {
+                if (item < valueToCompare)
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+        public int Greater(int valueToCompare)
+        {
+            int count = 0;
+
+            foreach (var item in _array)
+            {
+                if (item > valueToCompare)
+                {
+                    count++;
+                }
+            }
+
+            return count;
         }
     }
 }
